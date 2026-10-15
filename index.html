@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="vi" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Võ Doãn Quản - Portfolio Chuyên Nghiệp</title>
+    <style>
+        /* CSS Variables cho Dark Mode & Light Mode */
+        :root {
+            --bg-color: #f8f9fa;
+            --text-color: #333333;
+            --nav-bg: #1e293b;
+            --nav-text: #ffffff;
+            --card-bg: #ffffff;
+            --card-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            --primary-color: #2563eb;
+            --primary-hover: #1d4ed8;
+            --border-color: #cbd5e1;
+        }
+
+        [data-theme="dark"] {
+            --bg-color: #0f172a;
+            --text-color: #f1f5f9;
+            --nav-bg: #020617;
+            --nav-text: #f1f5f9;
+            --card-bg: #1e293b;
+            --card-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.5);
+            --primary-color: #3b82f6;
+            --primary-hover: #60a5fa;
+            --border-color: #334155;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; transition: background-color 0.3s, color 0.3s; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; background: var(--bg-color); color: var(--text-color); }
+
+        /* Navigation */
+        nav { background: var(--nav-bg); padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 1000; }
+        .nav-links a { color: var(--nav-text); margin: 0 1rem; text-decoration: none; font-weight: 500; }
+        .nav-links a:hover { color: var(--primary-color); }
+        .theme-toggle { background: transparent; border: 1px solid var(--nav-text); color: var(--nav-text); padding: 0.5rem 1rem; border-radius: 4px; cursor: pointer; }
+
+        /* Header / Hero Section */
+        header { text-align: center; padding: 5rem 1rem; background: linear-gradient(135deg, var(--nav-bg), var(--primary-color)); color: white; }
+        header h1 { font-size: 2.5rem; margin-bottom: 0.5rem; }
+        header p { font-size: 1.2rem; opacity: 0.9; }
+
+        /* General Section Styling */
+        section { padding: 4rem 1.5rem; max-width: 1100px; margin: 0 auto; }
+        h2 { text-align: center; margin-bottom: 2.5rem; font-size: 2rem; position: relative; }
+        h2::after { content: ''; display: block; width: 50px; height: 3px; background: var(--primary-color); margin: 0.5rem auto 0; border-radius: 2px; }
+
+        /* Scroll Animation Initial State */
+        .animate-on-scroll { opacity: 0; transform: translateY(30px); transition: opacity 0.6s ease-out, transform 0.6s ease-out; }
+        .animate-on-scroll.visible { opacity: 1; transform: translateY(0); }
+
+        /* Projects Grid (6 dự án) */
+        .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
+        .project-card { background: var(--card-bg); padding: 2rem; border-radius: 12px; box-shadow: var(--card-shadow); border: 1px solid var(--border-color); }
+        .project-card h3 { margin-bottom: 0.75rem; color: var(--primary-color); }
+
+        /* Contact Form */
+        .contact-form { background: var(--card-bg); padding: 2.5rem; border-radius: 12px; box-shadow: var(--card-shadow); max-width: 600px; margin: 0 auto; border: 1px solid var(--border-color); }
+        .form-group { margin-bottom: 1.5rem; }
+        .form-group label { display: block; margin-bottom: 0.5rem; font-weight: 500; }
+        .form-group input, .form-group textarea { width: 100%; padding: 0.75rem; border: 1px solid var(--border-color); border-radius: 6px; background: var(--bg-color); color: var(--text-color); font-size: 1rem; }
+        .form-group input:focus, .form-group textarea:focus { outline: none; border-color: var(--primary-color); }
+        button[type="submit"] { background: var(--primary-color); color: white; border: none; padding: 0.75rem 1.5rem; font-size: 1rem; border-radius: 6px; cursor: pointer; width: 100%; font-weight: 600; }
+        button[type="submit"]:hover { background: var(--primary-hover); }
+
+        /* Footer */
+        footer { text-align: center; padding: 2rem; background: var(--nav-bg); color: var(--nav-text); margin-top: 3rem; }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-links">
+            <a href="#about">Giới thiệu</a>
+            <a href="#projects">Dự án</a>
+            <a href="#contact">Liên hệ</a>
+        </div>
+        <button class="theme-toggle" id="themeToggle">🌙 Dark Mode</button>
+    </nav>
+
+    <!-- Header -->
+    <header>
+        <h1>Xin chào! Mình là Võ Doãn Quản</h1>
+        <p>Sinh viên CNTT – Trường Đại học Văn Hiến (MSSV: 231A290139)</p>
+    </header>
+
+    <!-- About Section -->
+    <section id="about" class="animate-on-scroll">
+        <h2>Thông tin cá nhân</h2>
+        <div class="project-card">
+            <p><strong>Ngày sinh:</strong> 10/08/2003</p>
+            <p><strong>Quê quán:</strong> Quảng Trị</p>
+            <p><strong>Địa chỉ cư trú:</strong> 57 Đường N2, KDC Phú Mỹ Hiệp, Tân Đông Hiệp, TP. Dĩ An, Bình Dương</p>
+            <p><strong>Sở thích:</strong> Thể thao, du lịch, lập trình ứng dụng web.</p>
+        </div>
+    </section>
+
+    <!-- Projects Section (Grid 6 dự án) -->
+    <section id="projects" class="animate-on-scroll">
+        <h2>Dự án nổi bật</h2>
+        <div class="projects-grid">
+            <div class="project-card">
+                <h3>1. Todo List JS</h3>
+                <p>Ứng dụng quản lý công việc hàng ngày viết bằng JavaScript thuần, lưu trữ dữ liệu trên LocalStorage.</p>
+            </div>
+            <div class="project-card">
+                <h3>2. Weather App</h3>
+                <p>Ứng dụng tra cứu thời tiết thời gian thực tích hợp gọi API thời tiết bên ngoài.</p>
+            </div>
+            <div class="project-card">
+                <h3>3. Library Management</h3>
+                <p>Hệ thống quản lý thư viện sử dụng lập trình hướng đối tượng (OOP) bằng Java.</p>
+            </div>
+            <div class="project-card">
+                <h3>4. Personal Profile Page</h3>
+                <p>Trang giới thiệu bản thân tối ưu chuẩn Responsive với HTML5 và CSS3 hiện đại.</p>
+            </div>
+            <div class="project-card">
+                <h3>5. E-commerce UI</h3>
+                <p>Giao diện trang chủ cửa hàng trực tuyến tích hợp giỏ hàng tương tác động.</p>
+            </div>
+            <div class="project-card">
+                <h3>6. Portfolio Website</h3>
+                <p>Trang web cá nhân chuyên nghiệp deploy với tên miền riêng và tối ưu SEO, Cloudflare.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section (Formspree) -->
+    <section id="contact" class="animate-on-scroll">
+        <h2>Liên hệ với tôi</h2>
+        <div class="contact-form">
+            <!-- Thay thế YOUR_FORMSPREE_ID bằng form endpoint của bạn tại formspree.io -->
+            <form action="https://formspree.io/f/YOUR_FORMSPREE_ID" method="POST">
+                <div class="form-group">
+                    <label for="name">Họ và tên</label>
+                    <input type="text" id="name" name="name" required placeholder="Nhập tên của bạn...">
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required placeholder="Nhập email của bạn...">
+                </div>
+                <div class="form-group">
+                    <label for="message">Lời nhắn</label>
+                    <textarea id="message" name="message" rows="5" required placeholder="Nhập nội dung cần trao đổi..."></textarea>
+                </div>
+                <button type="submit">Gửi tin nhắn</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Võ Doãn Quản - All rights reserved.</p>
+    </footer>
+
+    <!-- JavaScript Xử lý Dark Mode & Scroll Animation -->
+    <script>
+        // 1. Dark Mode Toggle
+        const themeToggle = document.getElementById('themeToggle');
+        const htmlElement = document.documentElement;
+
+        themeToggle.addEventListener('click', () => {
+            const currentTheme = htmlElement.getAttribute('data-theme');
+            if (currentTheme === 'light') {
+                htmlElement.setAttribute('data-theme', 'dark');
+                themeToggle.textContent = '☀️ Light Mode';
+            } else {
+                htmlElement.setAttribute('data-theme', 'light');
+                themeToggle.textContent = '🌙 Dark Mode';
+            }
+        });
+
+        // 2. Scroll Animation với Intersection Observer
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.animate-on-scroll').forEach(section => {
+            observer.observe(section);
+        });
+    </script>
+</body>
+</html>
